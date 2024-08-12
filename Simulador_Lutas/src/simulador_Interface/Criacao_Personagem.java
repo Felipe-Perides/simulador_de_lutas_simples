@@ -19,6 +19,7 @@ public class Criacao_Personagem extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private int attk1S=0,attk2S=0,def1S=0,def2S=0,vida1S=20,vida2S=20,pL1S=10,pL2S=10;
+	private JLabel jogador1, jogador2, attk1C, attk2C, def1C, def2C, vida1C, vida2C;
 	
 	/**
 	 * Launch the application.
@@ -52,11 +53,11 @@ public class Criacao_Personagem extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel jogador1 = new JLabel("JOGADOR 1");
+		jogador1 = new JLabel("JOGADOR 1");
 		jogador1.setBounds(60, 40, 69, 14);
 		contentPane.add(jogador1);
 		
-		JLabel jogador2 = new JLabel("JOGADOR 2");
+		jogador2 = new JLabel("JOGADOR 2");
 		jogador2.setBounds(428, 40, 69, 14);
 		contentPane.add(jogador2);
 		
@@ -84,27 +85,27 @@ public class Criacao_Personagem extends JFrame {
 		vida2.setBounds(451, 193, 46, 14);
 		contentPane.add(vida2);
 		
-		JLabel def1C = new JLabel(String.valueOf(def1S));
+		def1C = new JLabel(String.valueOf(def1S));
 		def1C.setBounds(26, 154, 46, 14);
 		contentPane.add(def1C);
 		
-		JLabel vida1C = new JLabel(String.valueOf(vida1S));
+		vida1C = new JLabel(String.valueOf(vida1S));
 		vida1C.setBounds(26, 211, 46, 14);
 		contentPane.add(vida1C);
 		
-		JLabel attk1C = new JLabel(String.valueOf(attk1S));
+		attk1C = new JLabel(String.valueOf(attk1S));
 		attk1C.setBounds(26, 95, 46, 14);
 		contentPane.add(attk1C);
 		
-		JLabel attk2C = new JLabel(String.valueOf(attk2S));
+		attk2C = new JLabel(String.valueOf(attk2S));
 		attk2C.setBounds(451, 95, 46, 14);
 		contentPane.add(attk2C);
 		
-		JLabel def2C = new JLabel(String.valueOf(def2S));
+		def2C = new JLabel(String.valueOf(def2S));
 		def2C.setBounds(451, 154, 46, 14);
 		contentPane.add(def2C);
 		
-		JLabel vida2C = new JLabel(String.valueOf(vida2S));
+		vida2C = new JLabel(String.valueOf(vida2S));
 		vida2C.setBounds(451, 211, 46, 14);
 		contentPane.add(vida2C);
 		
@@ -132,6 +133,8 @@ public class Criacao_Personagem extends JFrame {
 		            pL1S--;
 		            attk1C.setText(String.valueOf(attk1S));
 		            pontosLivres1C.setText(String.valueOf(pL1S));
+		            contentPane.revalidate();
+                    contentPane.repaint();
 		        }
 		    }
 		});
@@ -146,6 +149,8 @@ public class Criacao_Personagem extends JFrame {
 		            pL1S++;
 		            attk1C.setText(String.valueOf(attk1S));
 		            pontosLivres1C.setText(String.valueOf(pL1S));
+		            contentPane.revalidate();
+                    contentPane.repaint();
 		        }
 		    }
 		});
@@ -160,6 +165,8 @@ public class Criacao_Personagem extends JFrame {
 		            pL1S--;
 		            def1C.setText(String.valueOf(def1S));
 		            pontosLivres1C.setText(String.valueOf(pL1S));
+		            contentPane.revalidate();
+                    contentPane.repaint();
 		        }
 		    }
 		});
@@ -174,6 +181,8 @@ public class Criacao_Personagem extends JFrame {
 		            pL2S--;
 		            attk2C.setText(String.valueOf(attk2S));
 		            pontosLivres2C.setText(String.valueOf(pL2S));
+		            contentPane.revalidate();
+                    contentPane.repaint();
 		        }
 		    }
 		});
@@ -188,6 +197,8 @@ public class Criacao_Personagem extends JFrame {
 		            pL2S--;
 		            def2C.setText(String.valueOf(def2S));
 		            pontosLivres2C.setText(String.valueOf(pL2S));
+		            contentPane.revalidate();
+                    contentPane.repaint();
 		        }
 		    }
 		});
@@ -202,6 +213,8 @@ public class Criacao_Personagem extends JFrame {
 		            pL1S++;
 		            def1C.setText(String.valueOf(def1S));
 		            pontosLivres1C.setText(String.valueOf(pL1S));
+		            contentPane.revalidate();
+                    contentPane.repaint();
 		        }
 		    }
 		});
@@ -216,6 +229,8 @@ public class Criacao_Personagem extends JFrame {
 		            pL2S++;
 		            attk2C.setText(String.valueOf(attk2S));
 		            pontosLivres2C.setText(String.valueOf(pL2S));
+		            contentPane.revalidate();
+                    contentPane.repaint();
 		        }
 		    }
 		});
@@ -230,6 +245,8 @@ public class Criacao_Personagem extends JFrame {
 		            pL2S++;
 		            def2C.setText(String.valueOf(def2S));
 		            pontosLivres2C.setText(String.valueOf(pL2S));
+		            contentPane.revalidate();
+                    contentPane.repaint();
 		        }
 		    }
 		});
@@ -255,8 +272,7 @@ public class Criacao_Personagem extends JFrame {
 		});
 		voltar.setBounds(217, 312, 119, 23);
 		contentPane.add(voltar);
-
+		
 	}
-
 	
 }
