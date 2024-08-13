@@ -18,7 +18,7 @@ public class Criacao_Personagem extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private int attk1S=0,attk2S=0,def1S=0,def2S=0,vida1S=20,vida2S=20,pL1S=10,pL2S=10;
+	private int attk1S,attk2S,def1S,def2S,vida1S,vida2S,pL1S,pL2S;
 	private JLabel jogador1, jogador2, attk1C, attk2C, def1C, def2C, vida1C, vida2C;
 	
 	/**
@@ -40,11 +40,9 @@ public class Criacao_Personagem extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Criacao_Personagem() {
-		initComponents();
-	}
 	
-	public void initComponents() {
+	
+	public Criacao_Personagem() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 400);
 		contentPane = new JPanel();
@@ -53,28 +51,30 @@ public class Criacao_Personagem extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		attk1S=0;attk2S=0;def1S=0;def2S=0;vida1S=20;vida2S=20;pL1S=10;pL2S=10;
+		
 		jogador1 = new JLabel("JOGADOR 1");
-		jogador1.setBounds(60, 40, 69, 14);
+		jogador1.setBounds(26, 40, 69, 14);
 		contentPane.add(jogador1);
 		
 		jogador2 = new JLabel("JOGADOR 2");
-		jogador2.setBounds(428, 40, 69, 14);
+		jogador2.setBounds(451, 40, 69, 14);
 		contentPane.add(jogador2);
 		
 		JLabel attk1 = new JLabel("ATAQUE");
-		attk1.setBounds(26, 77, 46, 14);
+		attk1.setBounds(26, 77, 69, 14);
 		contentPane.add(attk1);
 		
 		JLabel attk2 = new JLabel("ATAQUE");
-		attk2.setBounds(451, 77, 46, 14);
+		attk2.setBounds(451, 77, 69, 14);
 		contentPane.add(attk2);
 		
 		JLabel def1 = new JLabel("DEFESA");
-		def1.setBounds(26, 136, 46, 14);
+		def1.setBounds(26, 136, 61, 14);
 		contentPane.add(def1);
 		
 		JLabel def2 = new JLabel("DEFESA");
-		def2.setBounds(450, 136, 46, 14);
+		def2.setBounds(450, 136, 70, 14);
 		contentPane.add(def2);
 		
 		JLabel vida1 = new JLabel("VIDA");
@@ -110,7 +110,7 @@ public class Criacao_Personagem extends JFrame {
 		contentPane.add(vida2C);
 		
 		JLabel pontosLivres1 = new JLabel("PONTOS LIVRES");
-		pontosLivres1.setBounds(26, 263, 88, 14);
+		pontosLivres1.setBounds(26, 263, 114, 14);
 		contentPane.add(pontosLivres1);
 		
 		JLabel pontosLivres2 = new JLabel("PONTOS LIVRES");
@@ -253,14 +253,14 @@ public class Criacao_Personagem extends JFrame {
 		menos4.setBounds(348, 150, 46, 23);
 		contentPane.add(menos4);
 		
-		JButton avancar = new JButton("AVANÇAR");
+		JButton avancar = new JButton("INICIAR BATALHA");
 		avancar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Batalha telaAvancar = new Batalha();
+				Batalha telaAvancar = new Batalha(Criacao_Personagem.this);
 				telaAvancar.setVisible(true);
 			}
 		});
-		avancar.setBounds(217, 278, 119, 23);
+		avancar.setBounds(208, 278, 140, 23);
 		contentPane.add(avancar);
 		
 		JButton voltar = new JButton("VOLTAR");
@@ -270,9 +270,26 @@ public class Criacao_Personagem extends JFrame {
 				telaInicial.setVisible(true);
 			}
 		});
-		voltar.setBounds(217, 312, 119, 23);
+		voltar.setBounds(208, 312, 140, 23);
 		contentPane.add(voltar);
 		
 	}
-	
+	public int getAttk1() {
+		return attk1S;
+	}
+	public int getDef1() {
+		return def1S;
+	}
+	public int getAttk2() {
+		return attk2S;
+	}
+	public int getDef2() {
+		return def2S;
+	}
+	public int getVida1() {
+		return vida1S;
+	}
+	public int getVida2() {
+		return vida2S;
+	}
 }
