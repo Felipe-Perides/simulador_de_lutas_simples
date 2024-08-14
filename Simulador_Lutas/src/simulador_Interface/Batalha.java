@@ -9,6 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
+
+import modelos.Jogador_Model;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -23,11 +26,12 @@ public class Batalha extends JFrame {
 	private Criacao_Personagem person;
 	private Random rand = new Random();
 	private int roundLucky=rand.nextInt(6)+1, playerLucky=rand.nextInt(2)+1, round;
-	private int attk1S,attk2S,def1S,def2S,vida1S,vida2S;
+	private int attk1S,attk2S,def1S,def2S,vida1S,vida2S,mana1S,mana2S;
 	private JTextField textField;
 	private JButton proximo;
-	private JProgressBar vidaBar1, vidaBar2;
-
+	private JProgressBar vidaBar1, vidaBar2, manaBar1, manaBar2;
+	private Jogador_Model J1, J2;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -65,18 +69,32 @@ public class Batalha extends JFrame {
 	 	    getContentPane().add(panel);
 	 	    
 	 	   vidaBar1 = new JProgressBar();
-	        vidaBar1.setMaximum(20);
+	        vidaBar1.setMaximum(100);
 	        vidaBar1.setValue(vida1S);
 	        vidaBar1.setStringPainted(true);
-	        vidaBar1.setBounds(10, 211, 150, 30);
+	        vidaBar1.setBounds(10, 189, 150, 30);
 	        contentPane.add(vidaBar1);
 
 	        vidaBar2 = new JProgressBar();
-	        vidaBar2.setMaximum(20);
+	        vidaBar2.setMaximum(100);
 	        vidaBar2.setValue(vida2S);
 	        vidaBar2.setStringPainted(true);
-	        vidaBar2.setBounds(374, 211, 150, 30);
+	        vidaBar2.setBounds(376, 189, 150, 30);
 	        contentPane.add(vidaBar2);
+	        
+	        manaBar1 = new JProgressBar();
+	        manaBar1.setMaximum(100);
+	        manaBar1.setValue(mana1S);
+	        manaBar1.setStringPainted(true);
+	        manaBar1.setBounds(10, 256, 150, 30);
+	        contentPane.add(manaBar1);
+
+	        manaBar2 = new JProgressBar();
+	        manaBar2.setMaximum(100);
+	        manaBar2.setValue(mana2S);
+	        manaBar2.setStringPainted(true);
+	        manaBar2.setBounds(376, 256, 150, 30);
+	        contentPane.add(manaBar2);
 	 	    
 	 	    proximo = new JButton("PRÓXIMO TURNO");
 	 	    proximo.addActionListener(new ActionListener() {
@@ -90,6 +108,22 @@ public class Batalha extends JFrame {
 	 	    });
 	 	    proximo.setBounds(177, 263, 154, 23);
 	 	    contentPane.add(proximo);
+	 	    
+	 	    JLabel vida1 = new JLabel("VIDA");
+	 	    vida1.setBounds(24, 164, 46, 14);
+	 	    contentPane.add(vida1);
+	 	    
+	 	    JLabel vida2 = new JLabel("VIDA");
+	 	    vida2.setBounds(408, 164, 46, 14);
+	 	    contentPane.add(vida2);
+	 	    
+	 	    JLabel manaC1 = new JLabel("MANA");
+	 	    manaC1.setBounds(24, 234, 46, 14);
+	 	    contentPane.add(manaC1);
+	 	    
+	 	    JLabel manaC2 = new JLabel("MANA");
+	 	    manaC2.setBounds(408, 234, 46, 14);
+	 	    contentPane.add(manaC2);
 	 	    proximo.setVisible(false);
 	 	    panel.setVisible(false);
 	}
@@ -105,11 +139,11 @@ public class Batalha extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel jogador1 = new JLabel("JOGADOR 1");
-		jogador1.setBounds(24, 53, 74, 27);
+		jogador1.setBounds(24, 20, 74, 27);
 		contentPane.add(jogador1);
 		
 		JLabel jogador2 = new JLabel("JOGADOR 2");
-		jogador2.setBounds(408, 53, 74, 27);
+		jogador2.setBounds(409, 18, 74, 27);
 		contentPane.add(jogador2);
 		
 		JLabel batalha = new JLabel("BATALHA");
@@ -117,19 +151,19 @@ public class Batalha extends JFrame {
 		contentPane.add(batalha);
 		
 		JLabel ataque1 = new JLabel("ATAQUE");
-		ataque1.setBounds(24, 91, 74, 20);
+		ataque1.setBounds(24, 47, 74, 20);
 		contentPane.add(ataque1);
 		
 		JLabel defesa1 = new JLabel("DEFESA");
-		defesa1.setBounds(24, 164, 62, 20);
+		defesa1.setBounds(24, 120, 62, 20);
 		contentPane.add(defesa1);
 		
 		JLabel ataque2 = new JLabel("ATAQUE");
-		ataque2.setBounds(408, 91, 74, 20);
+		ataque2.setBounds(409, 47, 74, 20);
 		contentPane.add(ataque2);
 		
 		JLabel defesa2 = new JLabel("DEFESA");
-		defesa2.setBounds(408, 164, 62, 20);
+		defesa2.setBounds(409, 120, 62, 20);
 		contentPane.add(defesa2);
 		
 		JButton comecar = new JButton("COMEÇAR");
@@ -145,21 +179,22 @@ public class Batalha extends JFrame {
 		contentPane.add(comecar);
 		
 		attk1S=person.getAttk1();attk2S=person.getAttk2();def1S=person.getDef1();def2S=person.getDef2();vida1S=person.getVida1();vida2S=person.getVida2();
+		mana1S=person.getMana1();mana2S=person.getMana2();
 		
 		JLabel atq1 = new JLabel(String.valueOf(attk1S));
-		atq1.setBounds(24, 112, 46, 14);
+		atq1.setBounds(24, 66, 46, 14);
 		contentPane.add(atq1);
 		
 		JLabel def1 = new JLabel(String.valueOf(def1S));
-		def1.setBounds(24, 185, 46, 14);
+		def1.setBounds(24, 139, 46, 14);
 		contentPane.add(def1);
 		
 		JLabel def2 = new JLabel(String.valueOf(def2S));
-		def2.setBounds(408, 185, 46, 14);
+		def2.setBounds(408, 139, 46, 14);
 		contentPane.add(def2);
 		
 		JLabel atq2 = new JLabel(String.valueOf(attk2S));
-		atq2.setBounds(408, 112, 46, 14);
+		atq2.setBounds(408, 66, 46, 14);
 		contentPane.add(atq2);
 		
 		textField = new JTextField(" ");
@@ -172,6 +207,9 @@ public class Batalha extends JFrame {
 	
 	public void initBatalha() {
 		attk1S=person.getAttk1();attk2S=person.getAttk2();def1S=person.getDef1();def2S=person.getDef2();vida1S=person.getVida1();vida2S=person.getVida2();
+		mana1S=person.getMana1();mana2S=person.getMana2();
+		J1 = new Jogador_Model(attk1S,def1S,vida1S,mana1S);
+		J2 = new Jogador_Model(attk2S,def2S,vida2S,mana2S);
 	}
 	private void simularBatalha() {
         int ataq1 = attk1S, ataq2 = attk2S, defe1 = def1S, defe2 = def2S, resto;
