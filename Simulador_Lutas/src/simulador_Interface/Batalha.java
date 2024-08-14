@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JProgressBar;
 import javax.swing.JTextField;
+import javax.swing.JList;
 
 public class Batalha extends JFrame {
 
@@ -124,6 +125,10 @@ public class Batalha extends JFrame {
 	 	    JLabel manaC2 = new JLabel("MANA");
 	 	    manaC2.setBounds(408, 234, 46, 14);
 	 	    contentPane.add(manaC2);
+	 	    
+	 	    JList list = new JList();
+	 	    list.setBounds(10, 297, 76, 53);
+	 	    contentPane.add(list);
 	 	    proximo.setVisible(false);
 	 	    panel.setVisible(false);
 	}
