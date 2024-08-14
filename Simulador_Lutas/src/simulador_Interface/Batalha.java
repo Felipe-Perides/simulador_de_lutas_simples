@@ -10,9 +10,13 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 
+import modelos.Itens;
 import modelos.Jogador_Model;
+import modelos.Modelo_Item_Basico_Attk;
+import modelos.Modelo_Item_Basico_Def;
 
 import javax.swing.JLabel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -126,13 +130,8 @@ public class Batalha extends JFrame {
 	 	    manaC2.setBounds(408, 234, 46, 14);
 	 	    contentPane.add(manaC2);
 	 	    
-	 	    JList list = new JList();
-	 	    list.setBounds(10, 297, 76, 53);
-	 	    contentPane.add(list);
-	 	    proximo.setVisible(false);
-	 	    panel.setVisible(false);
+	        
 	}
-	
 	
 	public void initComponents() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

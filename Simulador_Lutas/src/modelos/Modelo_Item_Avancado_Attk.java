@@ -3,8 +3,8 @@ package modelos;
 public class Modelo_Item_Avancado_Attk extends Modelo_Item_Basico_Attk {
 	private int vamp, sangramento, critico; //Effects
 	
-	public Modelo_Item_Avancado_Attk(int Dano, int RegVida) {
-		super(Dano, RegVida);
+	public Modelo_Item_Avancado_Attk(int Dano, int RegVida, String name) {
+		super(Dano, RegVida, name);
 		
 	}
 	

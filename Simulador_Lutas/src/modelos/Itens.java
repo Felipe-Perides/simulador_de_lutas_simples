@@ -8,41 +8,41 @@ public class Itens {
 	private Modelo_Item_Avancado_Def armaduraDeEspinhos, lagrimaDeIsabel, escudoMagico, botaDeAgilidade3, pedraFilosofal;
 	private Modelo_Item_Avancado_Attk machado, veuDaNoite, katana, pistola, cajado;
 	public Itens() {
-		this.cotaDeMalha = new Modelo_Item_Basico_Def(6,3); 	//maximo 10
-		this.capaNegatron = new Modelo_Item_Basico_Def(6,3); 	//maximo 10
-		this.escudoDeMadeira = new Modelo_Item_Basico_Def(7,0); 	//maximo 10
-		this.botaDeAgilidade1 = new Modelo_Item_Basico_Def(1,1); 	//maximo 10
-		this.essenciaVital = new Modelo_Item_Basico_Def(1,5); 	//maximo 10
+		this.cotaDeMalha = new Modelo_Item_Basico_Def(6,3,"cota de malha"); 	//maximo 10
+		this.capaNegatron = new Modelo_Item_Basico_Def(6,3,"capa negatron"); 	//maximo 10
+		this.escudoDeMadeira = new Modelo_Item_Basico_Def(7,0,"escudo de madeira"); 	//maximo 10
+		this.botaDeAgilidade1 = new Modelo_Item_Basico_Def(1,1,"bota de agilidade 1"); 	//maximo 10
+		this.essenciaVital = new Modelo_Item_Basico_Def(1,5,"essência vital"); 	//maximo 10
 		
-		this.adaga = new Modelo_Item_Basico_Attk(5,0); 	//maximo 10
-		this.graveto = new Modelo_Item_Basico_Attk(2,0); 	//maximo 10
-		this.martelo = new Modelo_Item_Basico_Attk(8,0); 	//maximo 10
-		this.socoIngles = new Modelo_Item_Basico_Attk(4,0); 	//maximo 10
-		this.estilingue = new Modelo_Item_Basico_Attk(5,2);		//maximo 10
+		this.adaga = new Modelo_Item_Basico_Attk(5,0,"adaga"); 	//maximo 10
+		this.graveto = new Modelo_Item_Basico_Attk(2,0,"graveto"); 	//maximo 10
+		this.martelo = new Modelo_Item_Basico_Attk(8,0,"martelo"); 	//maximo 10
+		this.socoIngles = new Modelo_Item_Basico_Attk(4,0,"soco-inglês"); 	//maximo 10
+		this.estilingue = new Modelo_Item_Basico_Attk(5,2,"estilingue");		//maximo 10
 		
-		this.coleteDeEspinhos = new Modelo_Item_Intermedio_Def(12,6);	//maximo 20
-		this.mantoAureo = new Modelo_Item_Intermedio_Def(12,6);		//maximo 20
-		this.escudoDeMetal = new Modelo_Item_Intermedio_Def(14,4);	//maximo 20
-		this.botaDeAgilidade2 = new Modelo_Item_Intermedio_Def(4,4);	//maximo 20
-		this.pedraRevitalizadora = new Modelo_Item_Intermedio_Def(4,18);	//maximo 20
+		this.coleteDeEspinhos = new Modelo_Item_Intermedio_Def(12,6,"colete de espinhos");	//maximo 20
+		this.mantoAureo = new Modelo_Item_Intermedio_Def(12,6,"manto aureo");		//maximo 20
+		this.escudoDeMetal = new Modelo_Item_Intermedio_Def(14,4,"escudo de metal");	//maximo 20
+		this.botaDeAgilidade2 = new Modelo_Item_Intermedio_Def(4,4,"bota de agilidade 2");	//maximo 20
+		this.pedraRevitalizadora = new Modelo_Item_Intermedio_Def(4,18,"pedra revitalizadora");	//maximo 20
 		
-		this.espadaLonga = new Modelo_Item_Intermedio_Attk(15,0);	//maximo 20
-		this.nunchaku = new Modelo_Item_Intermedio_Attk(14,0);	//maximo 20
-		this.clava = new Modelo_Item_Intermedio_Attk(18,0);	//maximo 20
-		this.arco = new Modelo_Item_Intermedio_Attk(16,4);	//maximo 20
-		this.varinha = new Modelo_Item_Intermedio_Attk(12,0);	//maximo 20
+		this.espadaLonga = new Modelo_Item_Intermedio_Attk(15,0,"espada longa");	//maximo 20
+		this.nunchaku = new Modelo_Item_Intermedio_Attk(14,0,"nunchaku");	//maximo 20
+		this.clava = new Modelo_Item_Intermedio_Attk(18,0,"clava");	//maximo 20
+		this.arco = new Modelo_Item_Intermedio_Attk(16,4,"arco");	//maximo 20
+		this.varinha = new Modelo_Item_Intermedio_Attk(12,0,"varinha");	//maximo 20
 		
-		this.armaduraDeEspinhos = new Modelo_Item_Avancado_Def(24,12);	//maximo 30
-		this.lagrimaDeIsabel = new Modelo_Item_Avancado_Def(24,12);		//maximo 30
-		this.escudoMagico = new Modelo_Item_Avancado_Def(28,8);		//maximo 30
-		this.botaDeAgilidade3 = new Modelo_Item_Avancado_Def(8,8);	//maximo 30
-		this.pedraFilosofal = new Modelo_Item_Avancado_Def(8,30);	//maximo 30
+		this.armaduraDeEspinhos = new Modelo_Item_Avancado_Def(24,12,"armadura de espinhos");	//maximo 30
+		this.lagrimaDeIsabel = new Modelo_Item_Avancado_Def(24,12,"lagrima de Isabel");		//maximo 30
+		this.escudoMagico = new Modelo_Item_Avancado_Def(28,8,"escudo magico");		//maximo 30
+		this.botaDeAgilidade3 = new Modelo_Item_Avancado_Def(8,8,"bota de agilidade 3");	//maximo 30
+		this.pedraFilosofal = new Modelo_Item_Avancado_Def(8,30,"pedra filosofal");	//maximo 30
 		
-		this.machado = new Modelo_Item_Avancado_Attk(26,0); 	//maximo 30
-		this.veuDaNoite = new Modelo_Item_Avancado_Attk(28,0);	//maximo 30
-		this.katana = new Modelo_Item_Avancado_Attk(24,0);		//maximo 30
-		this.pistola = new Modelo_Item_Avancado_Attk(25,0);		//maximo 30
-		this.cajado = new Modelo_Item_Avancado_Attk(20,0);		//maximo 30
+		this.machado = new Modelo_Item_Avancado_Attk(26,0,"machado"); 	//maximo 30
+		this.veuDaNoite = new Modelo_Item_Avancado_Attk(28,0,"véu da noite");	//maximo 30
+		this.katana = new Modelo_Item_Avancado_Attk(24,0,"katana");		//maximo 30
+		this.pistola = new Modelo_Item_Avancado_Attk(25,0,"pistola");		//maximo 30
+		this.cajado = new Modelo_Item_Avancado_Attk(20,0,"cajado");		//maximo 30
 	}
 	public Modelo_Item_Basico_Def getCotaDeMalha() {
 		return cotaDeMalha;
