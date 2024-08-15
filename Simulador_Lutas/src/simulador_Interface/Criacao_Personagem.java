@@ -22,7 +22,7 @@ public class Criacao_Personagem extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private int attk1S,attk2S,def1S,def2S,vida1S,vida2S,pL1S,pL2S, mana1S, mana2S;
+	private int attk1S,attk2S,def1S,def2S,vida1S,vida2S,pL1S,pL2S, mana1S, mana2S,regVida1,regVida2;
 	private JLabel jogador1, jogador2, attk1C, attk2C, def1C, def2C, vida1C, vida2C;
 	
 	/**
@@ -55,7 +55,7 @@ public class Criacao_Personagem extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		attk1S=0;attk2S=0;def1S=0;def2S=0;vida1S=100;vida2S=100;pL1S=10;pL2S=10;mana1S=100;mana2S=100;
+		attk1S=0;attk2S=0;def1S=0;def2S=0;vida1S=100;vida2S=100;pL1S=10;pL2S=10;mana1S=100;mana2S=100;regVida1=0;regVida2=0;
 		
 		jogador1 = new JLabel("JOGADOR 1");
 		jogador1.setBounds(26, 40, 69, 14);
@@ -320,4 +320,6 @@ public class Criacao_Personagem extends JFrame {
 	public int getMana2() {
 		return mana2S;
 	}
+	public int getRegVida1() {return regVida1;}
+	public int getRegVida2() {return regVida2;}
 }

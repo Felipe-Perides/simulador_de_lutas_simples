@@ -1,17 +1,21 @@
 package modelos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Jogador_Model {
-	private int attk, def, vida, mana;
+	private int attk, def, vida, mana, regVida;
 	private ArrayList<Itens> hud;
-	public Jogador_Model(int Attk, int Def, int Vida, int Mana) {
+	public Jogador_Model(int Attk, int Def, int Vida, int Mana, int RegVida) {
 		this.attk=Attk;
 		this.def=Def;
 		this.mana=Mana;
+		this.regVida=RegVida;
 		this.vida=Vida;
-		this.hud = new ArrayList<Itens>();
+		this.hud = new ArrayList<>();
 	}
+	public int getRegVida() {return regVida;}
+	public void setRegVida(int RegVida) {this.regVida=RegVida;}
 	public int getAttk() {
 		return attk;
 	}
@@ -46,5 +50,15 @@ public class Jogador_Model {
 	public void droparItem(Itens qualquer) {
 		hud.remove(qualquer);
 	}
-	
+	// Método para aplicar os efeitos dos itens
+    public void aplicarEfeitosDosItens(List<Item> itens) {
+        for (Item item : itens) {
+            this.attk += item.getBonusAttk();
+            this.def += item.getBonusDef();
+            this.vida += item.getBonusVida();
+            this.mana += item.getBonusMana();
+            this.regVida += item.getBonusRegVida();
+        }
+    }
+
 }
