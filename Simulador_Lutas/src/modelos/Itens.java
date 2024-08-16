@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Itens {
+	
 	 private List<Item> itens;
 
 	 public Itens() {
 		 itens = new ArrayList<>();
-	 }
+	}
 
-	 public void addItem(Item item) {
-		 itens.add(item);
-	 }
+	 public void addItem(Item item) {itens.add(item);}
+	 public String getName(int index) {return itens.get(index).getNome();}
 	 public Item getItemByName(String nome) {
 		 for (Item item : itens) {
 			 if (item.getNome().equals(nome)) {

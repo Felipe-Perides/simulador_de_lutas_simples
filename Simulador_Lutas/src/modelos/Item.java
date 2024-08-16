@@ -11,41 +11,17 @@ public class Item {
 		this.bonusVida=BonusVida;
 		this.nome=Nome;
 	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public int getBonusAttk() {
-		return bonusAttk;
-	}
-	public void setBonusAttk(int bonusAttk) {
-		this.bonusAttk = bonusAttk;
-	}
-	public int getBonusDef() {
-		return bonusDef;
-	}
-	public void setBonusDef(int bonusDef) {
-		this.bonusDef = bonusDef;
-	}
-	public int getBonusVida() {
-		return bonusVida;
-	}
-	public void setBonusVida(int bonusVida) {
-		this.bonusVida = bonusVida;
-	}
-	public int getBonusMana() {
-		return bonusMana;
-	}
-	public void setBonusMana(int bonusMana) {
-		this.bonusMana = bonusMana;
-	}
-	public int getBonusRegVida() {
-		return bonusRegVida;
-	}
-	public void setBonusRegVida(int bonusRegVida) {
-		this.bonusRegVida = bonusRegVida;
-	}
+	public String getNome() {return nome;}
+	public void setNome(String nome) {this.nome = nome;}
+	public int getBonusAttk() {return bonusAttk;}
+	public void setBonusAttk(int bonusAttk) {this.bonusAttk = bonusAttk;}
+	public int getBonusDef() {return bonusDef;}
+	public void setBonusDef(int bonusDef) {this.bonusDef = bonusDef;}
+	public int getBonusVida() {return bonusVida;}
+	public void setBonusVida(int bonusVida) {this.bonusVida = bonusVida;}
+	public int getBonusMana() {return bonusMana;}
+	public void setBonusMana(int bonusMana) {this.bonusMana = bonusMana;}
+	public int getBonusRegVida() {return bonusRegVida;}
+	public void setBonusRegVida(int bonusRegVida) {this.bonusRegVida = bonusRegVida;}
 	
 }

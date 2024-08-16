@@ -1,22 +1,15 @@
 package simulador_Interface;
 
 import java.awt.EventQueue;
-import simulador_Interface.Tela_Inicial;
-import simulador_Interface.Batalha;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import modelos.Jogador_Model;
-
 import javax.swing.JLabel;
 import javax.swing.JButton;
-import javax.swing.JProgressBar;
-import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Toolkit;
 
 public class Criacao_Personagem extends JFrame {
 
@@ -25,9 +18,6 @@ public class Criacao_Personagem extends JFrame {
 	private int attk1S,attk2S,def1S,def2S,vida1S,vida2S,pL1S,pL2S, mana1S, mana2S,regVida1,regVida2;
 	private JLabel jogador1, jogador2, attk1C, attk2C, def1C, def2C, vida1C, vida2C;
 	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -40,11 +30,6 @@ public class Criacao_Personagem extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
-	
 	
 	public Criacao_Personagem() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,7 +40,11 @@ public class Criacao_Personagem extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		// Inicializações
+		
 		attk1S=0;attk2S=0;def1S=0;def2S=0;vida1S=100;vida2S=100;pL1S=10;pL2S=10;mana1S=100;mana2S=100;regVida1=0;regVida2=0;
+		
+		// Labels
 		
 		jogador1 = new JLabel("JOGADOR 1");
 		jogador1.setBounds(26, 40, 69, 14);
@@ -128,6 +117,24 @@ public class Criacao_Personagem extends JFrame {
 		JLabel pontosLivres2C = new JLabel(String.valueOf(pL2S));
 		pontosLivres2C.setBounds(424, 316, 46, 14);
 		contentPane.add(pontosLivres2C);
+		
+		JLabel mana1 = new JLabel("MANA");
+		mana1.setBounds(26, 247, 46, 14);
+		contentPane.add(mana1);
+		
+		JLabel mana2 = new JLabel("MANA");
+		mana2.setBounds(451, 247, 46, 14);
+		contentPane.add(mana2);
+		
+		JLabel manaC1 = new JLabel("100");
+		manaC1.setBounds(26, 261, 46, 14);
+		contentPane.add(manaC1);
+		
+		JLabel manaC2 = new JLabel("100");
+		manaC2.setBounds(451, 261, 46, 14);
+		contentPane.add(manaC2);
+		
+		// Buttons
 		
 		JButton mais1 = new JButton("+");
 		mais1.addActionListener(new ActionListener() {
@@ -278,48 +285,17 @@ public class Criacao_Personagem extends JFrame {
 		});
 		voltar.setBounds(208, 312, 140, 23);
 		contentPane.add(voltar);
-		
-		JLabel mana1 = new JLabel("MANA");
-		mana1.setBounds(26, 247, 46, 14);
-		contentPane.add(mana1);
-		
-		JLabel mana2 = new JLabel("MANA");
-		mana2.setBounds(451, 247, 46, 14);
-		contentPane.add(mana2);
-		
-		JLabel manaC1 = new JLabel("100");
-		manaC1.setBounds(26, 261, 46, 14);
-		contentPane.add(manaC1);
-		
-		JLabel manaC2 = new JLabel("100");
-		manaC2.setBounds(451, 261, 46, 14);
-		contentPane.add(manaC2);
-		
 	}
-	public int getAttk1() {
-		return attk1S;
-	}
-	public int getDef1() {
-		return def1S;
-	}
-	public int getAttk2() {
-		return attk2S;
-	}
-	public int getDef2() {
-		return def2S;
-	}
-	public int getVida1() {
-		return vida1S;
-	}
-	public int getVida2() {
-		return vida2S;
-	}
-	public int getMana1() {
-		return mana1S;
-	}
-	public int getMana2() {
-		return mana2S;
-	}
+	
+	// Getters
+	public int getAttk1() {return attk1S;}
+	public int getDef1() {return def1S;}
+	public int getAttk2() {return attk2S;}
+	public int getDef2() {return def2S;}
+	public int getVida1() {return vida1S;}
+	public int getVida2() {return vida2S;}
+	public int getMana1() {return mana1S;}
+	public int getMana2() {return mana2S;}
 	public int getRegVida1() {return regVida1;}
 	public int getRegVida2() {return regVida2;}
 }

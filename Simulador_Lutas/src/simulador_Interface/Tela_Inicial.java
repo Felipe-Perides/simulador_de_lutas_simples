@@ -1,7 +1,5 @@
 package simulador_Interface;
 
-import java.awt.BorderLayout;
-import simulador_Interface.Criacao_Personagem;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,9 +15,6 @@ public class Tela_Inicial extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,9 +28,6 @@ public class Tela_Inicial extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public Tela_Inicial() {
 		initComponents();
 	}
@@ -49,6 +41,8 @@ public class Tela_Inicial extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		// Labels
+		
 		JLabel simulador = new JLabel("SIMULADOR");
 		simulador.setBounds(223, 39, 80, 29);
 		contentPane.add(simulador);
@@ -60,6 +54,8 @@ public class Tela_Inicial extends JFrame {
 		JLabel batalha = new JLabel("BATALHAS");
 		batalha.setBounds(225, 80, 80, 23);
 		contentPane.add(batalha);
+		
+		// Buttons
 		
 		JButton comecar = new JButton("COMEÇAR");
 		comecar.addActionListener(new ActionListener() {
