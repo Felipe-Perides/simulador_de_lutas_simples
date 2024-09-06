@@ -1,0 +1,214 @@
+BUBBLESORT:
+package Alest;
+
+import java.util.Random;
+
+public class BubblesortTrabalho{
+
+    public void sort(int[] values) {
+        for(int i=0; i<values.length; i++) {
+            boolean trocou = false;
+            for(int j=0; j<values.length-i-1; j++) {
+                if(values[j] > values[j+1]) {
+                    int temp = values[j];
+                    values[j] = values[j+1];
+                    values[j+1] = temp;
+                    trocou = true;
+                }
+            }
+            if(!trocou) break;
+        }
+    }
+
+    public static void main(String args[]) {
+        Random r = new Random();
+        int MAX = 50000;
+        int[] data = new int[MAX];
+        for(int i=0; i<data.length; i++)
+            data[i] = r.nextInt(data.length*10);
+
+        long start = System.nanoTime();
+        BubblesortTrabalho bs = new BubblesortTrabalho();
+        bs.sort(data);
+        long end = System.nanoTime();
+        //for(int i=0; i<data.length; i++)
+        //    System.out.print(data[i]+" ");
+        //System.out.println();
+        System.out.printf("Tempo para ordenar %d elementos: %d ns\n",MAX,end-start);
+    }
+}
+
+INSERTIONSORT:
+package Alest;
+
+import java.util.Random;
+
+public class InsertionsortTrabalho
+{
+    private int[] data;
+
+    public InsertionsortTrabalho(int[] data) {
+        this.data = data;
+    }
+
+    public void sort() {
+        int temp, j;
+        int n = data.length;
+        for(int i=0; i<n; i++) {
+            temp = data[i];
+            j = i;
+            while(j>0 && temp < data[j-1]) {
+                data[j] = data[j-1];
+                j--;
+                data[j] = temp;
+            }
+        }
+    }
+
+    public static void main(String args[]) {
+        Random r = new Random();
+        int MAX = 50000;
+        int[] data = new int[MAX];
+        for(int i=0; i<data.length; i++)
+            data[i] = r.nextInt(data.length*10);
+
+        InsertionsortTrabalho is = new InsertionsortTrabalho(data);
+        long start = System.nanoTime();
+        is.sort();
+        long end = System.nanoTime();
+        for(int i=0; i<data.length; i++)
+            System.out.print(data[i]+" ");
+        System.out.println();
+        System.out.printf("Tempo para ordenar %d elementos: %d ns\n",MAX,end-start);
+    }
+}
+
+QUICKSORT:
+package Alest;
+import java.util.Random;
+
+public class QuicksortTrabalho
+{
+    private int[] data;
+
+    public QuicksortTrabalho(int[] data) {
+        this.data = data;
+    }
+
+    public void sort() {
+        sort(0, data.length-1);
+    }
+
+    public void sort(int start, int end) {
+
+        if(start < end) {
+            int pivot_pos = partition(start, end);
+            sort(start, pivot_pos-1);
+            sort(pivot_pos+1, end);
+        }
+    }
+
+    private int partition(int start, int end) {
+
+        int i = start+1;
+        int pivot = data[start];
+        for(int j=start+1; j<=end; j++) {
+            if(data[j] < pivot) {
+                swap(i,j);
+                i++;
+            }
+        }
+        swap(start,i-1);
+        return i-1;
+    }
+
+    private void swap(int p1, int p2) {
+        int tmp = data[p1];
+        data[p1] = data[p2];
+        data[p2] = tmp;
+    }
+
+    public static void main(String args[]) {
+        Random r = new Random();
+        int MAX = 50000;
+        int[] data = new int[MAX];
+        for(int i=0; i<data.length; i++)
+            data[i] = r.nextInt(data.length*10);
+
+        QuicksortTrabalho qs = new QuicksortTrabalho(data);
+        long start = System.nanoTime();
+        qs.sort();
+        long end = System.nanoTime();
+        //for(int i=0; i<data.length; i++)
+        //    System.out.print(data[i]+" ");
+        //System.out.println();
+        System.out.printf("Tempo para ordenar %d elementos: %d ns\n",MAX,end-start);
+    }
+}
+
+MERGESORT:
+package Alest;
+
+import java.util.Random;
+
+public class MergesortTrabalho {
+    private int[] data;
+    private int[] arr;
+
+    private int number;
+
+    public void sort(int[] values) {
+        this.data = values;
+        number = values.length;
+        this.arr = new int[number];
+        mergesort(0, number - 1);
+    }
+
+    private void mergesort(int start, int end) {
+        // Verifica se start é menor que end, caso contrário terminou
+        if (start < end) {
+            // Obtém o índice o elemento no meio
+            int mid = (start + end) / 2;
+            // Ordena o lado esquerdo
+            mergesort(start, mid);
+            // Ordena o lado direito
+            mergesort(mid + 1, end);
+            // Combina ambos
+            merge(start, mid, end);
+        }
+    }
+
+    private void merge(int start, int mid, int end) {
+        int p = start, q = mid+1;
+        int k=0;
+        for(int i=start; i<= end; i++) {
+            if(p > mid)
+                arr[k++] = data[q++];
+            else if(q > end)
+                arr[k++] = data[p++];
+            else if(data[p] < data[q])
+                arr[k++] = data[p++];
+            else
+                arr[k++] = data[q++];
+        }
+        for(p=0; p<k; p++)
+            data[start++] = arr[p];
+    }
+
+    public static void main(String args[]) {
+        Random r = new Random();
+        int MAX = 25000;
+        int[] data = new int[MAX];
+        for(int i=0; i<data.length; i++)
+            data[i] = r.nextInt(data.length*10);
+
+        long start = System.nanoTime();
+        MergesortTrabalho ms = new MergesortTrabalho();
+        ms.sort(data);
+        long end = System.nanoTime();
+        for(int i=0; i<data.length; i++)
+            System.out.print(data[i]+" ");
+        System.out.println();
+        System.out.printf("Tempo para ordenar %d elementos: %d ns\n",MAX,end-start);
+    }
+}
